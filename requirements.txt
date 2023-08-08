@@ -1,0 +1,9 @@
+openai
+langchain
+docx2txt
+pypdf
+streamlit
+chromadb
+tiktoken
+PyPDF2
+faiss-cpu
