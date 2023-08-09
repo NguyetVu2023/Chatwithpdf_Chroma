@@ -44,7 +44,10 @@ def ask_and_get_answer(vector_store, q, k=5):
     retriever = vector_store.as_retriever(search_type='similarity', search_kwargs={'k': k})
 
 
-    prompt_template = """You are are examining a document. Use only the following piece of context to answer the questions at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer. Do not add any observations or comments. Answer only in Vietnamese".
+    prompt_template = """You are examining a document. Use only the following piece of context to answer the questions at the end. 
+    If you don't know the answer, just say that you don't know in a polite way, don't try to make up an answer. 
+    If the context is not relevant, do not answer the question by using your own knowledge about the topic
+    Do not add any observations or comments. Answer only in Vietnamese".
     
     CONTEXT {context}
 
