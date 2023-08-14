@@ -40,14 +40,14 @@ def ask_and_get_answer(vector_store, q, k=5):
     from langchain.chat_models import ChatOpenAI
     from langchain.prompts import PromptTemplate
 
-    llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=1)
+    llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0.1)
     retriever = vector_store.as_retriever(search_type='similarity', search_kwargs={'k': k})
 
 
     prompt_template = """You are examining a document. Use only the following piece of context to answer the questions at the end. 
     If you don't know the answer, just say that you don't know in a polite way, don't try to make up an answer. 
     If the context is not relevant, do not answer the question by using your own knowledge about the topic
-    Do not add any observations or comments. Answer only in Vietnamese".
+    Do not add any observations or comments. Answer only in Vietnamese, do add a polite sentence to ask our customer if they would like more information".
     
     CONTEXT {context}
 
